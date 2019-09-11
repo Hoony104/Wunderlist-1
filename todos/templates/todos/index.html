@@ -1,0 +1,11 @@
+{% extends 'todos/base.html' %}
+
+{% block body %}
+
+<h1>TO DO LIST</h1>
+<div class="container">
+  {% for todo in todos %}
+    <p>{{ todo.due_date }} | {{ todo.title }} <a href="{% url 'todos:edit' todo.id %}">수정</a> <a href="{% url 'todos:delete' todo.id %}">삭제</a></p>
+  {% endfor %}
+</div>
+{% endblock %}

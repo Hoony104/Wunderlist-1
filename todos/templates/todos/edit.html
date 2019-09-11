@@ -1,0 +1,12 @@
+{% extends 'todos/base.html' %}
+{% block body %}
+<div class="container mt-3">
+  <h1>수정하기</h1>
+  <form action="{% url 'todos:update' todo.id %}" method="post">
+    {% csrf_token %}
+    제목 : <input type="text" name="title" value="{{ todo.title }}"><br><br>
+    기한 : <input type="date" name="due-date" value="{{ todo.due_date|date:'Y-m-d' }}"><br><br>
+    <input type="submit">
+  </form>
+</div>
+{% endblock %}
